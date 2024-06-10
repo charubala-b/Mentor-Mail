@@ -1,7 +1,92 @@
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   
+ /* You can switch this to './b7.webp' if needed */
+background: linear-gradient(90deg, #42275a 0%, #734b6d 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional: keeps the background fixed while scrolling */
+}
+.inbox{
+  margin-top: 10px;
+  border-radius: 5px;
+  background:linear-gradient(90deg, #2a1938 0%, #563251 100%);
+  color: rgb(172, 168, 168);
+  font-size: large;
+  padding: 15px;
+  
+}
+#image{
+  margin-left: 35%;
+  margin-top: 10px;
+  width: 30%;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgb(199, 198, 198);
+}
+.co{
+  font-size: 25px;
+}
+.course{
+  background-color: #2a1938;
+  width: 60px;
+  margin-top: 5px;
+  margin-left: 50%;
+}
+.unl{
+  margin-top: 60px;
+}
+.content{
+  font-size: 10px;
+  color: black;
+}
+.mentor{
+  font-size: 40px;
+  color: rgb(61, 59, 61);
+  font-family:cursive;
+  margin-left: 22%;
+
+}
+.name{
+  font-size: 40px;
+  font-family: cursive;
+}
+.name1{
+  font-size: 20px;
+  font-family: cursive;
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+}
+
+.loading-spinner {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #ff6a6a; /* Pink */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spinner 2s linear infinite;
+}
+
+.loading-text {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #7b5373;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

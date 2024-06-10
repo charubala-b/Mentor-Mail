@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import b11 from 'C:/Users/aparn/OneDrive/Desktop/Mentor-Mail/mentor-mail/src/b11.jpg'; // Import the image
+
 
 const Login = () => {
     const [username, setName] = useState("");
@@ -28,7 +30,7 @@ const Login = () => {
                 alert("Data saved successfully");
                 setPassword("");
                 setName("");
-                navigate('/TodoList'); // Navigate to TodoList page after successful submission
+                navigate('/Todo'); // Navigate to TodoList page after successful submission
             }
         } catch (error) {
             console.error("Error saving data:", error);
@@ -38,9 +40,10 @@ const Login = () => {
 
     return (
         <div className="todo-app">
+            <img src={b11} alt="Login Image" id='image'/> {/* Use the imported image */}
             <h1 id='l1'>Login</h1>
             <form onSubmit={handleOnSubmit}>
-                <label id='l2'>Email-Id</label>
+                <label id='l2'><b>Email-Id</b></label>
                 <input
                     id='l3'
                     type="email"
@@ -49,7 +52,7 @@ const Login = () => {
                     value={username}
                     onChange={(e) => setName(e.target.value)}
                 />
-                <label id='l4'>Password</label>
+                <label id='l4'><b>Password</b></label>
                 <input
                     id='l5'
                     type="password"

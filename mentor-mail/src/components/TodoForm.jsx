@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 function TodoForm(props) {
+  const [todo,setTodo]=useState([]);
   const [input, setInput] = useState(props.edit ? props.edit.value : '');
 
   const inputRef = useRef(null);
@@ -11,6 +13,7 @@ function TodoForm(props) {
 
   const handleChange = e => {
     setInput(e.target.value);
+    //console.log(todo);
   };
 
   const handleSubmit = e => {
@@ -21,6 +24,8 @@ function TodoForm(props) {
       text: input
     });
     setInput('');
+    setTodo([...todo, input]); 
+    
   };
 
   return (

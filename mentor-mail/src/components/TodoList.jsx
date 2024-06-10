@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
+import { Link } from 'react-router-dom';
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
+
+  // Retrieve todos from local storage when the component mounts
+  useEffect(() => {
+    const storedTodos = JSON.parse(localStorage.getItem('todos'));
+    if (storedTodos) {
+      setTodos(storedTodos);
+    }
+  }, []);
+
+  // Save todos to local storage whenever the todos state changes
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = todo => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
@@ -11,9 +25,8 @@ function TodoList() {
     }
 
     const newTodos = [todo, ...todos];
-
     setTodos(newTodos);
-    console.log(...todos);
+    console.log(newTodos);
   };
 
   const updateTodo = (todoId, newValue) => {
@@ -26,7 +39,6 @@ function TodoList() {
 
   const removeTodo = id => {
     const removedArr = [...todos].filter(todo => todo.id !== id);
-
     setTodos(removedArr);
   };
 
@@ -41,9 +53,8 @@ function TodoList() {
   };
 
   return (
-    <>
     <div className='todo-app'>
-      <h1>What's the Plan for Today?</h1>
+      <h1 className='plan'>What's the course for Today?</h1>
       <TodoForm onSubmit={addTodo} />
       <Todo
         todos={todos}
@@ -51,8 +62,13 @@ function TodoList() {
         removeTodo={removeTodo}
         updateTodo={updateTodo}
       />
+      <Link
+        to="/Items"
+        state={{ todos }} // Pass the todos state
+      >
+        <button className='inbox'>INBOX</button>
+      </Link>
     </div>
-    </>
   );
 }
 

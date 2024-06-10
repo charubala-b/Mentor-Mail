@@ -1,23 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import TodoList from './components/TodoList.jsx'
-import Login from './components/Login.jsx'
-import {RouterProvider,createBrowserRouter} from "react-router-dom"
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import App from './App';
+import './index.css';
+import TodoList from './components/TodoList';
+import Login from './components/Login';
+import Items from './components/Items';
+import Content from './components/Content';
 
-
-const router=createBrowserRouter([
+const router = createBrowserRouter([
   {
-    path:"/",
-    element:<App/>
+    path: "/",
+    element: <Login/>,
   },
   {
-    path:"/TodoList",
-    element:<TodoList/>
+    path: "/Todo",
+    element: <TodoList/>,
+  },
+  {
+    path:"/Items",
+    element:<Items/>
+  },{
+    path:"/content",
+    element:<Content/>
   }
-  
-])
+]);
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <RouterProvider router={router}/>
-)
+  <RouterProvider router={router} />
+);
